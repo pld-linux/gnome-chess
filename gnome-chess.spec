@@ -13,10 +13,13 @@ Patch1:		%{name}-quit.patch
 Patch2:		%{name}-mime.patch
 Icon:		gnome-chess.gif
 BuildRequires:	ORBit-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	libglade-devel
+BuildRequires:	libtool
 URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
