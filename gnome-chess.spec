@@ -46,6 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 %{_datadir}/mime-info/*
 %{_applnkdir}/Games/*
