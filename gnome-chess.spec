@@ -5,11 +5,6 @@ Version:	0.3.3
 Release:	2
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-chess/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-missing_sgmldocs.make.patch
 Patch1:		%{name}-quit.patch
