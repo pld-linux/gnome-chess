@@ -13,11 +13,11 @@ Icon:		gnome-chess.gif
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gdk-pixbuf-devel >= 0.8.0
+BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libglade-devel
+BuildRequires:	libglade-gnome-devel
 BuildRequires:	libtool
 BuildRequires:	libxml-devel
 BuildRequires:	perl
@@ -60,7 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 	Gamesdir=%{_applnkdir}/Games/Board \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 	
-gzip -9nf AUTHORS NEWS README TODO
 %find_lang %{name}
 
 %clean
@@ -68,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
 %{_datadir}/gnome-chess
