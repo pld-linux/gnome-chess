@@ -11,6 +11,7 @@ Patch1:		%{name}-quit.patch
 Patch2:		%{name}-mime.patch
 Patch3:		%{name}-omf.patch
 Icon:		gnome-chess.gif
+URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
@@ -22,8 +23,6 @@ BuildRequires:	libglade-gnome-devel
 BuildRequires:	libtool
 BuildRequires:	libxml-devel
 BuildRequires:	perl
-Requires(post,postun):scrollkeeper
-URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -68,11 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-/usr/bin/scrollkeeper-update
-
-%postun
-/usr/bin/scrollkeeper-update
+%post	-p /usr/bin/scrollkeeper-update
+%postun	-p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
