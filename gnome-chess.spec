@@ -48,7 +48,7 @@ GNOME Chess jest czê¶ci± projektu GNOME.
 %build
 rm -f missing
 %{__gettextize}
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 %configure
