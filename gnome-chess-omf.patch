@@ -1,0 +1,40 @@
+diff -Nuard gnome-chess-0.3.3.orig/doc/C/gnome-chess-manual-C.omf gnome-chess-0.3.3/doc/C/gnome-chess-manual-C.omf
+--- gnome-chess-0.3.3.orig/doc/C/gnome-chess-manual-C.omf	Wed Jun  6 07:03:21 2001
++++ gnome-chess-0.3.3/doc/C/gnome-chess-manual-C.omf	Fri Oct  4 10:30:53 2002
+@@ -1,19 +1,18 @@
+ <?xml version="1.0" standalone="no"?>
++<!DOCTYPE omf PUBLIC "-//OMF//DTD Scrollkeeper OMF Variant V1.0//EN" "http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd">
+ <omf>
+   <resource>
++    <creator>
++     JP Rosevear jpr@ximian.com
++    </creator>
+     <title>
+      Gnome Chess Manual
+     </title>
+-    <creator>
+-     <person>
+-      <firstName>JP</firstName>
+-      <lastName>Rosevear</lastName>
+-      <email>jpr@ximian.com</email>
+-     </person>
+-    </creator>
+-    <subject>
+-      <category>Applications|Games</category>
+-    </subject>
++    <date>
++	2002-10-02
++    </date>
++    <version identifier="0.3.3" date=""/>
++    <subject category="Applications|Games"/>
+     <description>
+       This document describes the Gnome Chess program.
+     </description>
+@@ -23,5 +22,7 @@
+     <format mime="text/sgml"/>
+     <identifier url="gnome-chess-manual.sgml"/>
+     <language code="C"/>
++    <relation seriesid="93f41922-d773-11d6-8caa-8cbd15913467"/>
++    <rights type="GNU GPL" license.version="2" license="http://www.gnu.org/licenses/gpl.html"/>
+   </resource>
+ </omf>
