@@ -2,7 +2,7 @@ Summary:	GNOME chess - graphical chess interface
 Summary(pl):	GNOME chess - graficzny interfejs do programów szachowych
 Name:		gnome-chess
 Version:	0.3.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-chess/%{name}-%{version}.tar.bz2
@@ -25,6 +25,7 @@ URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define         _omf_dest_dir   %(scrollkeeper-config --omfdir)
 
 %description
 GNOME Chess is part of the GNOME project and is a graphical chess
@@ -56,7 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Gamesdir=%{_applnkdir}/Games/Board
+	Gamesdir=%{_applnkdir}/Games/Board \
+	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	
 gzip -9nf AUTHORS NEWS README TODO
 %find_lang %{name}
 
@@ -70,5 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*
 %{_datadir}/gnome-chess
 %{_datadir}/mime-info/*
-%{_datadir}/omf/*
+%{_omf_dest_dir}/%{name}
 %{_applnkdir}/Games/Board/*
