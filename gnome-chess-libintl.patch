@@ -1,0 +1,18 @@
+--- gnome-chess-0.2.4/aclocal.m4~	Sun Nov  7 01:57:12 1999
++++ gnome-chess-0.2.4/aclocal.m4	Sun Nov 25 11:11:33 2001
+@@ -104,6 +104,7 @@
+     AC_MSG_RESULT($USE_NLS)
+     AC_SUBST(USE_NLS)
+ 
++    BUILD_INCLUDED_LIBINTL=no
+     USE_INCLUDED_LIBINTL=no
+ 
+     dnl If we use NLS figure out what method
+@@ -260,6 +261,7 @@
+     done
+ 
+     dnl Make all variables we use known to autoconf.
++    AC_SUBST(BUILD_INCLUDED_LIBINTL)
+     AC_SUBST(USE_INCLUDED_LIBINTL)
+     AC_SUBST(CATALOGS)
+     AC_SUBST(CATOBJEXT)

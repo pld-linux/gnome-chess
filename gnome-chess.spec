@@ -8,6 +8,7 @@ Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/gnome-chess/%{name}-%{version}.tar.gz
+Patch0:		%{name}-libintl.patch
 Icon:		gnome-chess.gif
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
@@ -29,9 +30,11 @@ GNOME Chess jest czê¶ci± projektu GNOME.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 gettextize --copy --force
+autoconf
 %configure
 %{__make}
 
