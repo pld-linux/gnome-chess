@@ -1,7 +1,7 @@
 Summary:	GNOME chess
 Name:		gnome-chess
 Version:	0.2.4
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
