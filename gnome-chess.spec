@@ -1,9 +1,10 @@
 Summary:	GNOME chess
 Name:		gnome-chess
 Version:	0.2.4
-Release:	1
-Copyright:	GPL
-Group:		Games
+Release:	2
+License:	GPL
+Group:		X11/GNOME
+Group(pl):	X11/GNOME
 Source:		ftp://ftp.gnome.org/pub/gnome-chess/%{name}-%{version}.tar.gz
 Patch:		gnome-chess-applnk.patch
 Icon:		gnome-chess.gif
@@ -16,9 +17,9 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 %define		_prefix		/usr/X11R6
 
 %description
-GNOME Chess is part of the GNOME project and is a graphical chess interface.
-It can provide and interface to GNU Chess, Crafty, chess servers and PGN
-files.
+GNOME Chess is part of the GNOME project and is a graphical chess
+interface. It can provide and interface to GNU Chess, Crafty, chess servers
+and PGN files.
 
 %prep
 %setup -q
