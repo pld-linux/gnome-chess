@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Gamesdir=%{_applnkdir}/Games/Board \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
-	
+
 %find_lang %{name}
 
 %clean
