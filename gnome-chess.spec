@@ -22,6 +22,7 @@ BuildRequires:	libglade-gnome-devel
 BuildRequires:	libtool
 BuildRequires:	libxml-devel
 BuildRequires:	perl
+Requires(post,postun):scrollkeeper
 URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
