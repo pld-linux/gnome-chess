@@ -5,8 +5,8 @@ Release:	2
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source:		ftp://ftp.gnome.org/pub/gnome-chess/%{name}-%{version}.tar.gz
-Patch:		gnome-chess-applnk.patch
+Source0:	ftp://ftp.gnome.org/pub/gnome-chess/%{name}-%{version}.tar.gz
+Patch0:		gnome-chess-applnk.patch
 Icon:		gnome-chess.gif
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
@@ -18,8 +18,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GNOME Chess is part of the GNOME project and is a graphical chess
-interface. It can provide and interface to GNU Chess, Crafty, chess servers
-and PGN files.
+interface. It can provide and interface to GNU Chess, Crafty, chess
+servers and PGN files.
 
 %prep
 %setup -q
@@ -49,4 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/pixmaps/*
 %{_datadir}/mime-info/*
-%{_datadir}/applnk/Games/*
+%{_applnkdir}/Games/*
