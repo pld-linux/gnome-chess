@@ -30,7 +30,7 @@ gettextize --copy --force
 automake
 LDFAGS="-s"; export LDFAGS
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
