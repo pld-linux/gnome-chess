@@ -66,6 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 	
 %find_lang %{name}
+%find_lang %{name}-manual --with-gnome
+cat %{name}-manual.lang >> %{name}.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
