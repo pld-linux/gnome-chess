@@ -2,7 +2,7 @@ Summary:	GNOME chess - graphical chess interface
 Summary(pl):	GNOME chess - graficzny interfejs do programów szachowych
 Name:		gnome-chess
 Version:	0.3.3
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-chess/%{name}-%{version}.tar.bz2
@@ -66,6 +66,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+/usr/bin/scrollkeeper-update
+
+%postun
+/usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
