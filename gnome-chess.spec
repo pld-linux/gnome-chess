@@ -1,12 +1,12 @@
 Summary:	GNOME chess
 Name:		gnome-chess
 Version:	0.2.4
-Release:	2
+Release:	3
 License:	GPL
-Group:		X11/GNOME
-Group(pl):	X11/GNOME
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/gnome-chess/%{name}-%{version}.tar.gz
-Patch0:		gnome-chess-applnk.patch
 Icon:		gnome-chess.gif
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
@@ -23,19 +23,18 @@ servers and PGN files.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 gettextize --copy --force
-automake
-LDFAGS="-s"; export LDFAGS
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	Gamesdir=%{_applnkdir}/Games
 
 %find_lang %{name}
 
