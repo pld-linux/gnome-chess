@@ -12,7 +12,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
 URL:		http://www.gnome.org/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 
