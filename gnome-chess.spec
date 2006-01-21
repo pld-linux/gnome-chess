@@ -12,7 +12,6 @@ Patch1:		%{name}-quit.patch
 Patch2:		%{name}-mime.patch
 Patch3:		%{name}-omf.patch
 Patch4:		%{name}-desktop.patch
-Icon:		gnome-chess.gif
 URL:		http://primates.ximian.com/~jpr/gnome-chess/
 BuildRequires:	autoconf
 BuildRequires:	automake
