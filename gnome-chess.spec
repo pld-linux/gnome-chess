@@ -1,5 +1,5 @@
 Summary:	GNOME chess - graphical chess interface
-Summary(pl):	GNOME chess - graficzny interfejs do programów szachowych
+Summary(pl.UTF-8):   GNOME chess - graficzny interfejs do programÃ³w szachowych
 Name:		gnome-chess
 Version:	0.3.3
 Release:	8
@@ -33,10 +33,10 @@ GNOME Chess is part of the GNOME project and is a graphical chess
 interface. It can provide and interface to GNU Chess, Crafty, chess
 servers and PGN files.
 
-%description -l pl
-GNOME Chess to graficzny interfejs do programów szachowych. Dzia³a z
-programami GNU Chess i Crafty, obs³uguje serwery szachowe i plik PGN.
-GNOME Chess jest czê¶ci± projektu GNOME.
+%description -l pl.UTF-8
+GNOME Chess to graficzny interfejs do programÃ³w szachowych. DziaÅ‚a z
+programami GNU Chess i Crafty, obsÅ‚uguje serwery szachowe i plik PGN.
+GNOME Chess jest czÄ™Å›ciÄ… projektu GNOME.
 
 %prep
 %setup -q
