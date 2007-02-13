@@ -1,5 +1,5 @@
 Summary:	GNOME chess - graphical chess interface
-Summary(pl.UTF-8):   GNOME chess - graficzny interfejs do programów szachowych
+Summary(pl.UTF-8):	GNOME chess - graficzny interfejs do programów szachowych
 Name:		gnome-chess
 Version:	0.3.3
 Release:	8
