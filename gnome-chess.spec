@@ -1,33 +1,31 @@
-# TODO: update to 0.4.0
 Summary:	GNOME chess - graphical chess interface
 Summary(pl.UTF-8):	GNOME chess - graficzny interfejs do programów szachowych
 Name:		gnome-chess
-Version:	0.3.3
-Release:	8
+Version:	0.4.0
+Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	baca55b944140d7764af88da1167835e
-Patch0:		%{name}-missing_sgmldocs.make.patch
-Patch1:		%{name}-quit.patch
-Patch2:		%{name}-mime.patch
-Patch3:		%{name}-omf.patch
-Patch4:		%{name}-desktop.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	c754bb9686d99fc0c038754963c3fea4
+Patch0:		%{name}-desktop.patch
 URL:		http://primates.ximian.com/~jpr/gnome-chess/
+BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-libs-devel
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libglade-gnome-devel
+BuildRequires:	gtk+2-devel >= 1:2.0.5
+BuildRequires:	intltool
+BuildRequires:	libglade2-devel >= 1:2.0.0
+BuildRequires:	libgnomecanvas-devel >= 2.0.0
+BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libtool
-BuildRequires:	libxml-devel
-BuildRequires:	perl
+BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.198
+#BuildRequires:	scrollkeeper
+BuildRequires:	vte-devel >= 0.10.15
+Requires(post,postun):	GConf2 >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _omf_dest_dir   %(scrollkeeper-config --omfdir)
 
 %description
 GNOME Chess is part of the GNOME project and is a graphical chess
@@ -42,16 +40,14 @@ GNOME Chess jest częścią projektu GNOME.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
-rm -f missing
-%{__gettextize}
-%{__aclocal} -I macros
+%{__intltoolize}
+%{__glib_gettextize}
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -60,24 +56,30 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Gamesdir=%{_applnkdir}/Games/Board \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	DESTDIR=$RPM_BUILD_ROOT
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/mime-info
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{no,nb}
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /usr/bin/scrollkeeper-update
-%postun	-p /usr/bin/scrollkeeper-update
+%post
+%gconf_schema_install gnome-chess.schemas
+
+%postun
+%gconf_schema_uninstall gnome-chess.schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
-%{_pixmapsdir}/*
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/gnome-chess
 %{_datadir}/gnome-chess
-%{_datadir}/mime-info/*
-%{_omf_dest_dir}/%{name}
-%{_applnkdir}/Games/Board/*
+%{_sysconfdir}/gconf/schemas/gnome-chess.schemas
+%{_pixmapsdir}/gnome-chess.png
+%{_pixmapsdir}/gnome-chess
+%{_desktopdir}/gnome-chess.desktop
+# temporarily disabled
+#%{_omf_dest_dir}/%{name}
