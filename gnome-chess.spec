@@ -1,55 +1,64 @@
-Summary:	GNOME chess - graphical chess interface
-Summary(pl.UTF-8):	GNOME chess - graficzny interfejs do programów szachowych
+Summary:	GNOME Chess - a 2D/3D chess interface
+Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	0.4.0
-Release:	0.1
-License:	GPL v2+
+Version:	3.12.1
+Release:	1
+License:	GPL v2
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	c754bb9686d99fc0c038754963c3fea4
-Patch0:		%{name}-desktop.patch
-URL:		http://primates.ximian.com/~jpr/gnome-chess/
-BuildRequires:	GConf2-devel >= 2.2.0
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	flex
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	c79dc447a1339ca9e4448f629ea62a60
+URL:		https://wiki.gnome.org/Apps/Chess
+BuildRequires:	OpenGL-GLU-devel
+BuildRequires:	OpenGL-devel
+BuildRequires:	appdata-tools
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 1:2.0.5
-BuildRequires:	intltool
-BuildRequires:	libglade2-devel >= 1:2.0.0
-BuildRequires:	libgnomecanvas-devel >= 2.0.0
-BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libtool
+BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	gnome-common
+BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	intltool >= 0.50.0
+BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.198
-#BuildRequires:	scrollkeeper
-BuildRequires:	vte-devel >= 0.10.15
-Requires(post,postun):	GConf2 >= 2.2.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	vala >= 2:0.24.0
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xz
+BuildRequires:	yelp-tools
+Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	gtk-update-icon-cache
+Requires:	glib2 >= 1:2.26.0
+Requires:	gtk+3 >= 3.10.0
+Requires:	hicolor-icon-theme
+Requires:	librsvg >= 2.32.0
+Suggests:	crafty
+Suggests:	gnuchess
+Provides:	gnome-games-glchess = 1:%{version}-%{release}
+Obsoletes:	glchess
+Obsoletes:	gnome-games-glchess < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GNOME Chess is part of the GNOME project and is a graphical chess
-interface. It can provide and interface to GNU Chess, Crafty, chess
-servers and PGN files.
+GNOME Chess is a 2D/3D chess game interfacing via the Chess Engine
+Communication Protocol (CECP) by Tim Mann. This means it can currently
+use engines such as GNUChess, Sjeng, Faile, Amy, Crafty and Phalanx.
 
 %description -l pl.UTF-8
-GNOME Chess to graficzny interfejs do programów szachowych. Działa z
-programami GNU Chess i Crafty, obsługuje serwery szachowe i plik PGN.
-GNOME Chess jest częścią projektu GNOME.
+GNOME Chess to dwu i trójwymiarowa gra w szachy komunikująca się za
+pomocą protokołu CECP (Chess Engine Communication Protocol) Tima
+Manna. Oznacza to, że aktualnie może używać silników takich jak
+GNUChess, Sjeng, Faile, Amy, Crafty i Phalanx.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
-%{__glib_gettextize}
-%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -58,28 +67,28 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/mime-info
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{no,nb}
-
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gnome-chess.schemas
+%glib_compile_schemas
+%update_icon_cache hicolor
 
 %postun
-%gconf_schema_uninstall gnome-chess.schemas
+%glib_compile_schemas
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc NEWS
 %attr(755,root,root) %{_bindir}/gnome-chess
+%{_datadir}/appdata/gnome-chess.appdata.xml
 %{_datadir}/gnome-chess
-%{_sysconfdir}/gconf/schemas/gnome-chess.schemas
-%{_pixmapsdir}/gnome-chess.png
-%{_pixmapsdir}/gnome-chess
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-chess.gschema.xml
+%dir %{_sysconfdir}/gnome-chess
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gnome-chess/engines.conf
 %{_desktopdir}/gnome-chess.desktop
-# temporarily disabled
-#%{_omf_dest_dir}/%{name}
+%{_iconsdir}/hicolor/*/*/*.png
+%{_mandir}/man6/gnome-chess.6*
