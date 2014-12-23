@@ -1,12 +1,12 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	3.12.3
+Version:	3.14.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	63b80f2210c8d4b202ddfb72bb4d95d7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	cb9599c6e74eaa730347cce37247c573
 URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-devel
@@ -14,9 +14,9 @@ BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	pkgconfig
@@ -27,8 +27,8 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires:	glib2 >= 1:2.26.0
-Requires:	gtk+3 >= 3.10.0
+Requires:	glib2 >= 1:2.40.0
+Requires:	gtk+3 >= 3.14.0
 Requires:	hicolor-icon-theme
 Requires:	librsvg >= 2.32.0
 Suggests:	crafty
@@ -74,10 +74,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %postun
 %glib_compile_schemas
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -86,9 +88,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-chess
 %{_datadir}/appdata/gnome-chess.appdata.xml
 %{_datadir}/gnome-chess
-%{_datadir}/glib-2.0/schemas/org.gnome.gnome-chess.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.chess.gschema.xml
 %dir %{_sysconfdir}/gnome-chess
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gnome-chess/engines.conf
 %{_desktopdir}/gnome-chess.desktop
+%{_iconsdir}/HighContrast/*/apps/gnome-chess.svg
 %{_iconsdir}/hicolor/*/apps/gnome-chess.png
 %{_mandir}/man6/gnome-chess.6*
