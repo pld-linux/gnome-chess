@@ -19,13 +19,14 @@ BuildRequires:	gnome-common
 BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	librsvg-devel >= 2.32.0
+BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.40.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.14.0
@@ -54,6 +55,7 @@ GNUChess, Sjeng, Faile, Amy, Crafty i Phalanx.
 
 %build
 %{__intltoolize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
