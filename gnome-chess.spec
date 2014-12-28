@@ -13,7 +13,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common
 BuildRequires:	gtk+3-devel >= 3.14.0
