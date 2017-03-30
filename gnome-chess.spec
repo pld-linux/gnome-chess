@@ -1,12 +1,12 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	3.22.2
+Version:	3.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.22/%{name}-%{version}.tar.xz
-# Source0-md5:	7c195495503ecdead1384e979beb6ec6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.24/%{name}-%{version}.tar.xz
+# Source0-md5:	ebf9945b9385b4263ff3727cbdaf6081
 URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
@@ -18,7 +18,7 @@ BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vala >= 2:0.27.1
+BuildRequires:	vala >= 2:0.26.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.40.0
