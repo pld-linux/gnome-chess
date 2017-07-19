@@ -14,11 +14,11 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.19.0
-BuildRequires:	librsvg-devel >= 2.32.0
+BuildRequires:	librsvg-devel >= 1:2.32.0
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vala >= 2:0.26.0
+BuildRequires:	vala >= 2:0.35.7
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.40.0
@@ -26,7 +26,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.19.0
 Requires:	hicolor-icon-theme
-Requires:	librsvg >= 2.32.0
+Requires:	librsvg >= 1:2.32.0
 Suggests:	crafty
 Suggests:	gnuchess
 Provides:	gnome-games-glchess = 1:%{version}-%{release}
