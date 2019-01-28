@@ -1,24 +1,26 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	3.24.1
+Version:	3.30.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	56eaa655a7989fd04ce0de3c66c2d8f8
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-chess/3.30/%{name}-%{version}.tar.xz
+# Source0-md5:	1d9dbde2a84b6a996ad913f72c24e492
 URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	appstream-glib-devel
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.19.0
 BuildRequires:	librsvg-devel >= 1:2.32.0
 BuildRequires:	libtool >= 2:2.2
+BuildRequires:	meson
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.35.7
+BuildRequires:	vala-librsvg
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.40.0
@@ -49,20 +51,13 @@ GNUChess, Sjeng, Faile, Amy, Crafty i Phalanx.
 %setup -q
 
 %build
-%{__gettextize}
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules
-%{__make}
+%meson build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -81,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS
 %attr(755,root,root) %{_bindir}/gnome-chess
-%{_datadir}/appdata/gnome-chess.appdata.xml
+%{_datadir}/metainfo/gnome-chess.appdata.xml
 %{_datadir}/gnome-chess
 %{_datadir}/glib-2.0/schemas/org.gnome.chess.gschema.xml
 %dir %{_sysconfdir}/gnome-chess
