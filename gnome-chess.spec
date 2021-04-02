@@ -1,3 +1,4 @@
+# TODO: move to gtk4-update-icon-cache
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
@@ -11,7 +12,7 @@ URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.44.0
-BuildRequires:	gtk+3-devel >= 3.20.0
+BuildRequires:	gtk4-devel >= 4.0
 BuildRequires:	librsvg-devel >= 1:2.46.0
 BuildRequires:	meson >= 0.50
 BuildRequires:	ninja >= 1.5
@@ -25,7 +26,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.44.0
-Requires:	gtk+3 >= 3.20.0
+Requires:	gtk4 >= 4.0
 Requires:	hicolor-icon-theme
 Requires:	librsvg >= 1:2.46.0
 Suggests:	crafty
