@@ -2,17 +2,18 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	41.1
+Version:	42.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	https://download.gnome.org/sources/gnome-chess/41/%{name}-%{version}.tar.xz
-# Source0-md5:	79a5f2164941ba75baf4bc0a1b99045f
+Source0:	https://download.gnome.org/sources/gnome-chess/42/%{name}-%{version}.tar.xz
+# Source0-md5:	3a1f53440151e1250f64d96331be39f8
 URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gtk4-devel >= 4.0
+BuildRequires:	libadwaita-devel >= 1.0.0
 BuildRequires:	librsvg-devel >= 1:2.46.0
 BuildRequires:	meson >= 0.50
 BuildRequires:	ninja >= 1.5
@@ -28,6 +29,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.44.0
 Requires:	gtk4 >= 4.0
 Requires:	hicolor-icon-theme
+Requires:	libadwaita >= 1.0.0
 Requires:	librsvg >= 1:2.46.0
 Suggests:	crafty
 Suggests:	gnuchess
