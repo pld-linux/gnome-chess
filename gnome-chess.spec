@@ -2,18 +2,18 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	46.0
+Version:	47.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	https://download.gnome.org/sources/gnome-chess/46/%{name}-%{version}.tar.xz
-# Source0-md5:	4b07b8cafb26795643709457a63b6e39
+Source0:	https://download.gnome.org/sources/gnome-chess/47/%{name}-%{version}.tar.xz
+# Source0-md5:	d51ce935d14d646a60ba63166dfb3889
 URL:		https://wiki.gnome.org/Apps/Chess
-BuildRequires:	appstream-glib
+BuildRequires:	AppStream
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.44.0
-BuildRequires:	gtk4-devel >= 4.0
-BuildRequires:	libadwaita-devel >= 1.0.0
+BuildRequires:	gtk4-devel >= 4.10
+BuildRequires:	libadwaita-devel >= 1.5
 BuildRequires:	librsvg-devel >= 1:2.46.0
 BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
@@ -22,16 +22,16 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.35.7
-BuildRequires:	vala-libadwaita >= 1.0.0
+BuildRequires:	vala-libadwaita >= 1.5
 BuildRequires:	vala-librsvg >= 1:2.46.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.44.0
-Requires:	gtk4 >= 4.0
+Requires:	gtk4 >= 4.10
 Requires:	hicolor-icon-theme
-Requires:	libadwaita >= 1.0.0
+Requires:	libadwaita >= 1.5
 Requires:	librsvg >= 1:2.46.0
 Suggests:	crafty
 Suggests:	gnuchess
