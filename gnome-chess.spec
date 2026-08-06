@@ -2,18 +2,18 @@
 Summary:	GNOME Chess - a 2D/3D chess interface
 Summary(pl.UTF-8):	GNOME Chess - dwu i trójwymiarowy interfejs do szachów
 Name:		gnome-chess
-Version:	48.0
+Version:	50.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	https://download.gnome.org/sources/gnome-chess/48/%{name}-%{version}.tar.xz
-# Source0-md5:	63b0cb8e3cb2b7a7220ca2cef4446c55
+Source0:	https://download.gnome.org/sources/gnome-chess/50/%{name}-%{version}.tar.xz
+# Source0-md5:	d813a64a1db8a350d7465d4c311ddb1a
 URL:		https://wiki.gnome.org/Apps/Chess
 BuildRequires:	AppStream
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gtk4-devel >= 4.14
-BuildRequires:	libadwaita-devel >= 1.5
+BuildRequires:	libadwaita-devel >= 1.8
 BuildRequires:	librsvg-devel >= 1:2.46.0
 BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.35.7
-BuildRequires:	vala-libadwaita >= 1.5
+BuildRequires:	vala-libadwaita >= 1.8
 BuildRequires:	vala-librsvg >= 1:2.46.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -31,7 +31,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.44.0
 Requires:	gtk4 >= 4.14
 Requires:	hicolor-icon-theme
-Requires:	libadwaita >= 1.5
+Requires:	libadwaita >= 1.8
 Requires:	librsvg >= 1:2.46.0
 Suggests:	crafty
 Suggests:	gnuchess
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gnome-chess/engines.conf
 %{_datadir}/dbus-1/services/org.gnome.Chess.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Chess.gschema.xml
-%{_datadir}/metainfo/org.gnome.Chess.appdata.xml
+%{_datadir}/metainfo/org.gnome.Chess.metainfo.xml
 %{_desktopdir}/org.gnome.Chess.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Chess.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Chess-symbolic.svg
